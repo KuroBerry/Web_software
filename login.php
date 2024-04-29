@@ -20,7 +20,7 @@
         } else if (empty($password)) {
           $error = 'Hãy nhập mật khẩu của bạn';
         } else if (strlen($password) < 6) {
-          $error = 'Mật khảu phải có ít nhất 6 kí tự';
+          $error = 'Mật khẩu phải có ít nhất 6 kí tự';
         } 
         else
         {
@@ -72,6 +72,7 @@
             </div>
 
             <p class="regis-message" >Bạn chưa có tài khoản? <a href="signup.php">Đăng ký</a> tại đây.</p>
+            <p class="regis-message" ><a href="forget_password.php">Quên mật khẩu?</a></p>
 
             <?php
             if (!empty($error)) {

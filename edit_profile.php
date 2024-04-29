@@ -28,7 +28,7 @@
         else if (empty($password)) {
             $error = 'Hãy nhập mật khẩu của bạn';
         } else if (strlen($password) < 6) {
-            $error = 'Mật khảu phải có ít nhất 6 kí tự';
+            $error = 'Mật khẩu phải có ít nhất 6 kí tự';
         } 
 
         else
@@ -36,7 +36,7 @@
             $result = updateInformation($_SESSION['ID'], $current_password, $name, $email, $phoneNumber, $password);
             if($result['code'] == 0)
             {
-                $error = 'Tài khoản của bạn đã được đăng kí thành công';
+                $error = 'Tài khoản của bạn đã được cập nhật thông tin';
                 ?>
                 <script>
                     alert('<?= $error?>');

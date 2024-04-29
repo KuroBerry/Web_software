@@ -1,44 +1,43 @@
 <?php
-    // require_once('./PHP/connection.php');
+    require_once('./server/connection.php');
 
-    // $error = '';
-    // $email = '';
-    // $link = explode('/f', getCurrentPageURL())[0];
+    $error = '';
+    $email = '';
 
-    // if (isset($_POST['email'])) {
-    //     $email = $_POST['email'];
+    if (isset($_POST['email'])) {
+        $email = $_POST['email'];
 
-    //     if (empty($email)) {
-    //         $error = 'Hãy nhập email của bạn';
-    //     }
-    //     else if (filter_var($email, FILTER_VALIDATE_EMAIL) == false) {
-    //         $error = 'Địa chỉ email không hợp lện';
-    //     }
-    //     else {
-    //         $result = takeTokentoReset($email);
-    //         if($result['code'] == 1)
-    //         {
-    //             $error = $result['error'];
-    //         }
+        if (empty($email)) {
+            $error = 'Hãy nhập email của bạn';
+        }
+        else if (filter_var($email, FILTER_VALIDATE_EMAIL) == false) {
+            $error = 'Địa chỉ email không hợp lện';
+        }
+        else {
+            $result = takeTokentoReset($email);
+            if($result['code'] == 1)
+            {
+                $error = $result['error'];
+            }
             
-    //         elseif($result['code'] == 2)
-    //         {
-    //             $error = $result['error'];
-    //         }
+            elseif($result['code'] == 2)
+            {
+                $error = $result['error'];
+            }
 
-    //         //found
-    //         else
-    //         {
-    //             ?>
-    //             <script>
-    //                 alert('<?= $result['error']; ?>');
-    //                 window.location.href = 'login.php';
-    //             </script>
-    //             <?php
-    //             sendResetpasswordEmails($email, $result['newToken'], $link);
-    //         }
-    //     }
-    // }
+            //found
+            else
+            {
+                ?>
+                <script>
+                    alert('<?= $result['error']; ?>');
+                    window.location.href = 'login.php';
+                </script>
+                <?php
+                sendResetpasswordEmails($email, $result['newToken']);
+            }
+        }
+    }
 ?>
 
 
@@ -49,9 +48,9 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Phim Khong Hay</title>
+  <title>Flower Management</title>
 
-  <link rel="stylesheet" type="text/css" href="./CSS/login_style.css" />
+  <link rel="stylesheet" type="text/css" href="./CSS/style_forget.css" />
 
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
@@ -62,7 +61,7 @@
     <header>
         <div class="web-heading" >
           <a href="index.php" class="logo login-header">
-              <h1>Phim <span>Không Hay</span></h1>
+              <h1>Quên mật khẩu</h1>
           </a>
         </div>
     </header>
