@@ -24,6 +24,8 @@
         }
     }
     
+    $order_list = explode(",", $data['order_list']);
+    $ordered_flowers = getFlowerinOrderlist($order_list)['data'];
 
 ?>
 
@@ -77,11 +79,15 @@
                 </div>
 
                 <div class="right-column">
-                    <p class = "product">-Rose</p>
-                    <p class = "product">-Sunflower</p>
-                    <p class = "product">-Tulip</p>
-                    <p class = "product">-Orchid</p>
-                    <p class = "product">-Lily</p>
+                    <?php
+                        for($i = 0; $i < sizeof($ordered_flowers); $i ++)
+                        {
+                        ?>
+                            <p class = "product">-<?=$ordered_flowers[$i] ?></p>
+                        <?php
+                        }
+                    ?>
+
                 </div>
             </div>
         </div>

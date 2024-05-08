@@ -63,4 +63,35 @@ function deleteOrder($id)
 
     return false;
 }
+
+function getFlowerinOrderlist($list)
+{
+    $conn = connection();
+    $flowers = []; // Mảng chứa kết quả từ các truy vấn
+
+    for($i = 0; $i < sizeof($list); $i ++)
+    {
+        $sql = "SELECT `flower_name` FROM `flower` WHERE ID = ?";
+    
+        $id_flower = (int)$list[$i];     
+
+        $stm = $conn -> prepare($sql);
+        $stm -> bind_param('i', $id_flower);
+
+        if(!$stm -> execute())
+        {
+            return array('code' => 1, 'message' => "There an error occured, please try again later");
+        }
+
+        $result = $stm -> get_result();
+
+        // Lấy kết quả từ truy vấn và thêm vào mảng kết quả
+        if($row = $result->fetch_assoc()) {
+            $flowers[] = $row['flower_name'];
+        }
+    }
+
+    return array('code' => 0, 'data' => $flowers);
+}
+
 ?>
