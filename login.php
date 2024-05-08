@@ -32,6 +32,11 @@
               $_SESSION['name'] = $data['acc']['name'];
               $_SESSION['phone'] = $data['acc']['phone'];
               $_SESSION['email'] = $data['acc']['email'];
+
+              $_SESSION['order1'] = 0;
+              $_SESSION['order2'] = 0;
+              $_SESSION['order3'] = 0;
+
       
               header('Location: index.php');
               exit();
