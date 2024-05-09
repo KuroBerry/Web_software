@@ -1,0 +1,71 @@
+.title{
+    font-family: 'Courier New', Courier, monospace;
+    font-size :50px;
+    text-align: center;
+    padding: 20px;
+    border: 2px solid #05f0a9;
+    border-radius : 100px;
+    width :fit-content;
+    margin : 0 auto;
+    margin-top: 100px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.8);
+    background:
+        linear-gradient(225deg, #ecedee, transparent 30%),
+        linear-gradient(330deg, rgb(210, 206, 242), transparent 30%),
+        linear-gradient(150deg , #13ffb8, #FEEED3, #e2fae1, powderblue);
+}
+
+.section{
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);      /* Chia thành 5 cột bằng nhau */
+    gap: 10px;                                  /* Khoảng cách giữa các .panel */
+    justify-items: center;                      /* Căn giữa theo chiều ngang */
+    padding-top : 50px;
+    padding-bottom : 100px;
+}
+
+.panel{
+    display : flex;
+    flex-direction: column;
+    border: 2px solid black;
+    border-radius : 50px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.8); 
+    background:
+        linear-gradient(225deg, #ecedee, transparent 30%),
+        linear-gradient(330deg, rgb(210, 206, 242), transparent 30%),
+        linear-gradient(150deg , #fff0be, #FEEED3, #e2fae1, powderblue);
+}
+
+.panel:first-child{         /*khoảng cách từ khung đầu tới bên trái màn hình */
+    margin-left : 175px;
+}
+
+.panel:last-child{          /*khoảng cách từ khung cuối tới bên phải màn hình */
+    margin-right: 200px;
+}
+
+.panel:not(:first-child){   /*Khoảng cách giữa các khung*/
+    margin-left: 90px;
+}
+
+.img{
+    width :250px;
+    padding: 30px;
+    border: 3px solid black; /* Thay đổi viền ảnh */
+    border-radius: 40px;
+}
+
+.name{
+    text-align: center;
+    font-size: x-large;
+    font-weight: bold;
+    font-family:Courier New;
+}
+
+.price{
+    text-align: center;
+    font-size: large;
+    font-family:Courier New;
+    font-weight: bold;
+    margin: 10px auto 20px;
+}

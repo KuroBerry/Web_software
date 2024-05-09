@@ -2,9 +2,7 @@
 
 <header>
     <div class="container_title">
-        <h1 class="header_title">
-            <a href="index.php">Flower Shop Management System</a>
-        </h1>
+        <h1 class="header_title">Flower Shop Management System</h1>
     </div>
 
 
@@ -24,6 +22,14 @@
                     <a href="logout.php">
                         <img class="avatar" src="./component/avatar.jpg" alt="">
                     </a>
+                </div>
+            <?php
+        }
+        else
+        {
+            ?>
+                <div class="login-btn user">
+                    <a href="login.php">Đăng nhập</a>
                 </div>
             <?php
         }

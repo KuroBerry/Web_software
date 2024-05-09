@@ -12,19 +12,6 @@
     --container-color: #2d2e37;
     --text-color: #ffffff;
 }
-a {
-    text-decoration: none;
-    color: inherit; /* Sử dụng màu kế thừa */
-}
-
-a:visited {
-    color: inherit; /* Màu không thay đổi sau khi đã bấm vào */
-}
-
-a:hover {
-    color: inherit; /* Màu không thay đổi khi trỏ chuột qua */
-}
-
 
 /* Basic Styles */
 body {
@@ -84,6 +71,12 @@ header {
     text-transform: uppercase;
     color: var(--text-color);
 }
+
+
+
+
+
+
 
 .section_container
 {
