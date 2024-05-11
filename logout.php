@@ -1,6 +1,12 @@
 <?php
     session_start();
 
+    if(!isset($_SESSION['ID'])) //Nếu chưa đăng nhập (Tức là SESSION ID chưa được set) thì hệ thống sẽ tự động điều hướng người dùng đến tận trang login
+    {
+        header('Location: login.php');
+        die;
+    }
+
     $name = $_SESSION['name'];
     $phone = $_SESSION['phone'];
     $email = $_SESSION['email'];

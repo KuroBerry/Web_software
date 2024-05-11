@@ -18,68 +18,65 @@
 
     if (isset($_POST['username']) && isset($_POST['email']) && isset($_POST['phone']) && isset($_POST['password']) && isset($_POST['password_confirm'])) {
     
-    $name = $_POST['username'];
-    $email = $_POST['email'];
-    $phone = $_POST['phone'];
-    $password = $_POST['password'];
-    $password_confirm = $_POST['password_confirm'];
+        $name = $_POST['username'];
+        $email = $_POST['email'];
+        $phone = $_POST['phone'];
+        $password = $_POST['password'];
+        $password_confirm = $_POST['password_confirm'];
 
-    if(empty($name))
-    {
-        $error = 'Hãy nhập Username của bạn';
-    }
-    else if(empty($email))
-    {
-        $error = 'Hãy nhập Email của bạn';
-    }
-    else if (filter_var($email, FILTER_VALIDATE_EMAIL) == false) {
-        $error = 'Địa chỉ Email của bạn không hợp lệ';
-    }
-    else if(empty($phone))
-    {
-        $error = 'Hãy nhập số điện thoại của bạn';
-    }
-    else if(empty($password))
-    {
-        $error = 'Hãy nhập Mật khẩu của bạn';
-    }
-    else if(empty($password_confirm))
-    {
-        $error = 'Hãy nhập mật khẩu lần 2 của bạn';
-    }
-    else if(empty($email))
-    {
-        $error = 'Hãy nhập Email của bạn';
-    }
-    else if (strlen($password) < 6) {
-        $error = 'Mật khẩu phải có ít nhất 6 kí tự';
-    }
-    else if ($password != $password_confirm) {
-        $error = 'Mật khẩu KHÔNG trùng khớp';
-    }
-
-    else {
-
-        $result = signupAccount($name, $email, $phone, $password);
-
-        if($result['code'] == 0)
+        if(empty($name))
         {
-        ?>
-        <script>
-            alert('<?= $result['error']; ?>');
-            window.location.href = 'login.php';
-        </script>
-        <?php
+            $error = 'Hãy nhập Username của bạn';
         }
-        elseif($result['code'] == 1)
+        else if(empty($email))
         {
-            $error = $result['error'];
+            $error = 'Hãy nhập Email của bạn';
         }
-        else
+        else if (filter_var($email, FILTER_VALIDATE_EMAIL) == false) {
+            $error = 'Địa chỉ Email của bạn không hợp lệ';
+        }
+        else if(empty($phone))
         {
-            $error = $result['error'];
-        } 
-    }
+            $error = 'Hãy nhập số điện thoại của bạn';
+        }
+        else if(empty($password))
+        {
+            $error = 'Hãy nhập Mật khẩu của bạn';
+        }
+        else if(empty($password_confirm))
+        {
+            $error = 'Hãy nhập mật khẩu lần 2 của bạn';
+        }
+        else if(empty($email))
+        {
+            $error = 'Hãy nhập Email của bạn';
+        }
+        else if (strlen($password) < 6) {
+            $error = 'Mật khẩu phải có ít nhất 6 kí tự';
+        }
+        else if ($password != $password_confirm) {
+            $error = 'Mật khẩu KHÔNG trùng khớp';
+        }
+
+        else {
+
+            $result = signupAccount($name, $email, $phone, $password);
+
+            if($result['code'] == 0)
+            {
+            ?>
+            <script>
+                alert('<?= $result['error']; ?>');
+                window.location.href = 'login.php';
+            </script>
+            <?php
+            }
+            
+            else
+            {
+                $error = $result['error'];
+            } 
+        }
     }
 ?>
 

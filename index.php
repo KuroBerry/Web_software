@@ -25,12 +25,10 @@
     <main class="section_container">
         <section id="inventory">
             <a href="./inventory_management.php">Inventory Management</a>
-            <!-- Add account management functionalities here -->
         </section>
 
         <section id="orders">
             <a href="./order_management.php">Order Management</a>
-            <!-- Add account management functionalities here -->
         </section>
     </main>
     
