@@ -30,6 +30,10 @@
         <section id="orders">
             <a href="./order_management.php">Order Management</a>
         </section>
+
+        <section id="employees">
+            <a href="./employee.php">Employees Management</a>
+        </section>
     </main>
     
     <?php

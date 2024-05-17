@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 11, 2024 at 05:14 PM
+-- Generation Time: May 17, 2024 at 11:04 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -30,35 +30,48 @@ SET time_zone = "+00:00";
 CREATE TABLE `customer` (
   `ID` int(11) NOT NULL,
   `name` varchar(50) NOT NULL,
-  `num_phone` varchar(30) NOT NULL,
-  `address` varchar(255) NOT NULL
+  `address` varchar(255) NOT NULL,
+  `num_phone` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `customer`
 --
 
-INSERT INTO `customer` (`ID`, `name`, `num_phone`, `address`) VALUES
-(2, 'Trần Thị Lan', '+84 987 654 321', '456 Đường Lê Lợi, Quận 2, Thành phố Hà Nội'),
-(3, 'Nguyễn Văn Bảo', '+84 123 456 789', '123 Đường Nguyễn Văn Linh, Quận 1, Thành phố Hồ Chí Minh'),
-(4, 'Lê Thị Mai', '+84 456 789 123', '789 Đường Trần Hưng Đạo, Quận 3, Thành phố Đà Nẵng'),
-(5, 'Nguyễn Thị Hằng', '+84 912 345 678', '321 Đường Phan Đăng Lưu, Quận 4, Thành phố Hồ Chí Minh'),
-(6, 'Trần Văn An', '+84 999 888 777', '456 Đường Lê Duẩn, Quận 5, Thành phố Hà Nội'),
-(7, 'Phạm Thị Ngọc', '+84 888 777 666', '789 Đường Trần Quang Khải, Quận 6, Thành phố Đà Nẵng');
+INSERT INTO `customer` (`ID`, `name`, `address`, `num_phone`) VALUES
+(1, 'Nguyen Van A', '123 Đường ABC, Hà Nội', '0987654321'),
+(2, 'Tran Thi B', '456 Đường DEF, TP. Hồ Chí Minh', '0976543210'),
+(3, 'Le Van C', '789 Đường GHI, Đà Nẵng', '0965432109'),
+(4, 'Pham Thi D', '321 Đường JKL, Hải Phòng', '0954321098'),
+(5, 'Hoang Van E', '654 Đường MNO, Cần Thơ', '0943210987'),
+(6, 'Bui Thi F', '987 Đường PQR, Nha Trang', '0932109876'),
+(7, 'Vu Van G', '159 Đường STU, Huế', '0921098765'),
+(8, 'Dao Thi H', '753 Đường VWX, Vinh', '0910987654'),
+(9, 'Dinh Van I', '852 Đường YZ, Quy Nhơn', '0909876543'),
+(10, 'Trinh Thi J', '741 Đường ABCD, Buôn Ma Thuột', '0898765432');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `customer_account`
+-- Table structure for table `employee`
 --
 
-CREATE TABLE `customer_account` (
+CREATE TABLE `employee` (
   `ID` int(11) NOT NULL,
-  `customer_mail` varchar(50) NOT NULL,
-  `customer_password` varchar(30) NOT NULL,
-  `activated` int(11) NOT NULL,
-  `token` varchar(255) NOT NULL
+  `name` varchar(50) NOT NULL,
+  `phone` varchar(20) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `work_branch` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `employee`
+--
+
+INSERT INTO `employee` (`ID`, `name`, `phone`, `email`, `work_branch`) VALUES
+(3, 'Quốc Thịnh', '8012398234', 'quocthinh@gmail.com', 'Hồ Chí Minh'),
+(9, 'Trần Văn Hùng', '0909090909', 'tranvanhung@example.com', 'dalat'),
+(11, 'Nguyễn Thanh Huy', '0123456789', 'nguyenthanhhuy@example.com', 'hcm');
 
 -- --------------------------------------------------------
 
@@ -107,9 +120,24 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `status`, `customer_id`, `order_list`) VALUES
-(43, 1, 2, '1,3,5,7'),
-(45, 1, 4, '1,2,3,4,5'),
-(48, 1, 7, '1,3,5,7,9');
+(1, 1, 1, '5,6,7'),
+(4, 1, 4, '6,7,8'),
+(5, 0, 5, '9,13,14'),
+(6, 0, 6, '15,5,6'),
+(7, 0, 7, '7,8,9'),
+(8, 0, 8, '13,14,15'),
+(9, 0, 9, '5,6,13'),
+(10, 0, 10, '7,8,14'),
+(11, 0, 1, '9,15,5'),
+(12, 0, 2, '6,7,13'),
+(13, 0, 3, '8,9,14'),
+(14, 0, 4, '15,5,6'),
+(15, 0, 5, '7,8,9'),
+(16, 0, 6, '13,14,15'),
+(17, 0, 7, '5,6,7'),
+(18, 0, 8, '8,9,13'),
+(19, 0, 9, '14,15,5'),
+(20, 0, 10, '6,7,8');
 
 -- --------------------------------------------------------
 
@@ -129,8 +157,7 @@ CREATE TABLE `reset_token` (
 --
 
 INSERT INTO `reset_token` (`id_reset_token`, `email`, `token`, `expire_on`) VALUES
-(1, 'dhdncndhxn650@gmail.com', '', NULL),
-(2, 'dhdncndhxn650@gmail.com', '', NULL);
+(1, 'dhdncndhxn650@gmail.com', '', NULL);
 
 -- --------------------------------------------------------
 
@@ -167,6 +194,12 @@ ALTER TABLE `customer`
   ADD PRIMARY KEY (`ID`);
 
 --
+-- Indexes for table `employee`
+--
+ALTER TABLE `employee`
+  ADD PRIMARY KEY (`ID`);
+
+--
 -- Indexes for table `flower`
 --
 ALTER TABLE `flower`
@@ -198,7 +231,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `employee`
+--
+ALTER TABLE `employee`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `flower`

@@ -17,7 +17,23 @@ a {
     text-decoration: none;
 }
 
+.back_container
+{
+    margin-top: 3rem;
+}
 
+.back
+{
+    width: fit-content;
+    margin-left: 4rem;
+    padding: 10px 20px; /* Tăng khoảng cách giữa viền và nội dung */
+    border-radius: 12px;
+    border: 3px solid rgb(38, 247, 184);
+    font-weight: bold;
+    color: #000000;
+    font-size: 18px; /* Giảm kích thước font */
+    background: rgb(126, 255, 212);
+}
 
 .logo {
     font-size: 1.4rem;
@@ -100,6 +116,32 @@ button
     margin-left: auto;
     margin-right: auto;
 }
+
+select {
+    border: 1.5px solid var(--container-color);
+    border-radius: 20px;
+    padding: 0.4rem;
+    padding-left: 1rem;
+    font-size: 1.1rem;
+    width: 100%;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    background: none; /* Để tạo hiệu ứng trong suốt cho phần chọn */
+    color: var(--main-color); /* Màu chữ */
+}
+
+/* Style cho phần chọn khi được hover */
+select:hover {
+    border-color: var(--main-color); /* Thay đổi màu viền khi hover */
+}
+
+/* Style cho phần chọn khi được focus */
+select:focus {
+    outline: none; /* Loại bỏ viền nổi khi focus */
+    border-color: var(--main-color); /* Thay đổi màu viền khi focus */
+}
+
 
 .error-message
 {

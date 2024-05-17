@@ -1,0 +1,97 @@
+* {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: border-box;
+    scroll-padding-top: 2rem;
+}
+
+:root {
+    --main-color: #01e29f;
+    --hover-color: rgba(1, 1, 1, 0);
+    --body-color: rgb(30,30,30);
+    --container-color: #2d2e37;
+    --text-color: #ffffff;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    margin-top: 6rem;
+    margin-bottom: 6rem;
+}
+
+.add-container
+{
+    margin-left: 3rem;
+}
+
+.add-employ{
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    padding: 5px;
+    border: 2px solid #05f0a9;
+    border-radius : 100px;
+    width :fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 0 10px rgba(0,0,0,0.8);
+    background:
+        linear-gradient(225deg, #ecedee, transparent 30%),
+        linear-gradient(330deg, rgb(210, 206, 242), transparent 30%),
+        linear-gradient(150deg , #13ffb8, #FEEED3, #e2fae1, powderblue);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    padding: 1rem;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    border: solid #01e29f;
+    border-radius: 8px;
+    
+}
+
+.employee-panel {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    padding: 15px;
+    width: 90%;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.form-container
+{
+    margin-left: 10rem;
+}
+
+.employee-panel h3 {
+    margin-top: 0;
+}
+
+.employee-panel .btn-container {
+    
+    text-align: center;
+}
+
+.employee-panel .btn {
+    padding: 5px 10px;
+    margin-right: 10px;
+    cursor: pointer;
+    background-color: green;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+}
+
+.employee-panel .btn.delete {
+    background-color: #dc3545;
+}
